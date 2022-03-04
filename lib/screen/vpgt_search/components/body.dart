@@ -1,10 +1,7 @@
 import 'package:demo_app/screen/vpgt_search/components/violation_tab.dart';
 import 'package:demo_app/size_config.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../components/default_button.dart';
-import '../../../components/item_violation.dart';
 import 'body_date_picker_dialog.dart';
 import 'body_status_dialog.dart';
 import 'body_dialog.dart';
@@ -106,7 +103,7 @@ class BodyVPGTSearch extends StatelessWidget {
           },
         ),
         SizedBox(height: getProportionateScreenWidth(10)),
-        ViolationTab()
+        const ViolationTab()
       ],
     );
   }
