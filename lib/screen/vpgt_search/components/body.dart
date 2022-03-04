@@ -1,6 +1,13 @@
+import 'package:demo_app/screen/vpgt_search/components/violation_tab.dart';
 import 'package:demo_app/size_config.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/default_button.dart';
+import '../../../components/item_violation.dart';
+import 'body_date_picker_dialog.dart';
+import 'body_status_dialog.dart';
+import 'body_dialog.dart';
 import 'custom_input.dart';
 
 class BodyVPGTSearch extends StatelessWidget {
@@ -50,19 +57,36 @@ class BodyVPGTSearch extends StatelessWidget {
         ),
         SizedBox(height: getProportionateScreenWidth(10)),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomInput(
-              width: 150,
+              width: getProportionateScreenWidth(155),
               textHint: "Từ ngày",
               iconData: Icons.calendar_month,
-              press: () {},
+              press: () {
+                BottomDialog().showBottomDialog(
+                  context,
+                  const BodyDialog(
+                    title: "Chọn ngày",
+                    child: BodyDatePickerDialog(),
+                  ),
+                );
+              },
             ),
+            SizedBox(width: getProportionateScreenWidth(20)),
             CustomInput(
-              width: 150,
+              width: getProportionateScreenWidth(155),
               textHint: "Đến ngày",
               iconData: Icons.calendar_month,
-              press: () {},
+              press: () {
+                BottomDialog().showBottomDialog(
+                  context,
+                  const BodyDialog(
+                    title: "Chọn ngày",
+                    child: BodyDatePickerDialog(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -72,16 +96,24 @@ class BodyVPGTSearch extends StatelessWidget {
           textHint: "Trạng thái",
           iconData: Icons.keyboard_arrow_down,
           press: () {
-            BottomDialog().showBottomDialog(context);
+            BottomDialog().showBottomDialog(
+              context,
+              const BodyDialog(
+                title: "Trạng thái",
+                child: BodyStatusDialog(),
+              ),
+            );
           },
         ),
+        SizedBox(height: getProportionateScreenWidth(10)),
+        ViolationTab()
       ],
     );
   }
 }
 
 class BottomDialog {
-  void showBottomDialog(BuildContext context) {
+  void showBottomDialog(BuildContext context, Widget child) {
     showGeneralDialog(
       barrierLabel: "showGeneralDialog",
       barrierDismissible: true,
@@ -91,78 +123,9 @@ class BottomDialog {
       pageBuilder: (context, _, __) {
         return Align(
           alignment: Alignment.bottomCenter,
-          child: _buildDialogContent(),
+          child: child,
         );
       },
-    );
-  }
-
-  Widget _buildDialogContent() {
-    return IntrinsicHeight(
-      child: Container(
-        width: double.maxFinite,
-        clipBehavior: Clip.antiAlias,
-        padding: const EdgeInsets.all(16),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-          ),
-        ),
-        child: Material(
-          color: Colors.white,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(Icons.close),
-                  Spacer(),
-                  Text("Trạng thái", textAlign: TextAlign.center,),
-                  Spacer()
-                ],
-              ),
-              const Divider(
-                color: Colors.black26,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text("Trạng thái", textAlign: TextAlign.center,),
-                ],
-              ),
-              Divider(
-                color: Colors.black26,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text("Trạng thái", textAlign: TextAlign.center,),
-                ],
-              ),
-              Divider(
-                color: Colors.black26,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text("Trạng thái", textAlign: TextAlign.center,),
-                ],
-              ),
-              Divider(
-                color: Colors.black26,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text("Trạng thái", textAlign: TextAlign.center,),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
