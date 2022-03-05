@@ -1,5 +1,6 @@
 import 'package:demo_app/routers.dart';
-import 'package:demo_app/screen/home/home_screen.dart';
+import 'package:demo_app/screen/login/login_screen.dart';
+import 'package:demo_app/screen/parent_home/parent_home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: routers,
-      initialRoute: HomeScreen.routerName,
+      initialRoute: LoginScreen.routerName,
     );
   }
 }

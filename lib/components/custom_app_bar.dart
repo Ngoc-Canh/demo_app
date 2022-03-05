@@ -14,11 +14,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return PreferredSize(
       preferredSize: Size.fromHeight(AppBar().preferredSize.height),
       child: SafeArea(
-        child: Padding(
+        child: Container(
           padding: EdgeInsets.symmetric(
             horizontal: getProportionateScreenWidth(16),
             vertical: getProportionateScreenWidth(10),
           ),
+          color: Colors.white,
           child: Column(
             children: [
               Row(
@@ -26,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   InkWell(
                     onTap: () => Navigator.pop(context),
-                    child: Container(
+                    child: SizedBox(
                       width: getProportionateScreenWidth(30),
                       height: getProportionateScreenWidth(30),
                       child: Icon(

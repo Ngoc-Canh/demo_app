@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../components/custom_bottom_navbar.dart';
-import '../../enum.dart';
 import '../../size_config.dart';
 import 'components/grid_view_button.dart';
 import 'components/header.dart';
@@ -31,7 +29,8 @@ class HomeScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(16)),
+                horizontal: getProportionateScreenWidth(16),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -74,9 +73,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: const CustomBottomNavBar(
-        state: MenuState.home,
       ),
     );
   }

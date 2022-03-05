@@ -14,95 +14,102 @@ class BodyVPGTSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: getProportionateScreenWidth(280),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hoverColor: Colors.red,
-                  contentPadding: EdgeInsets.symmetric(
-                    vertical: getProportionateScreenWidth(10),
-                    horizontal: getProportionateScreenWidth(16),
-                  ),
-                  hintText: "Nhập biển số",
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      bottomLeft: Radius.circular(10),
+        Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: getProportionateScreenWidth(280),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        hoverColor: Colors.red,
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: getProportionateScreenWidth(10),
+                          horizontal: getProportionateScreenWidth(16),
+                        ),
+                        hintText: "Nhập biển số",
+                        border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(10),
+                            bottomLeft: Radius.circular(10),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  Container(
+                    height: getProportionateScreenWidth(50),
+                    width: getProportionateScreenWidth(50),
+                    decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                          bottomRight: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        ),
+                        color: Colors.teal.shade200),
+                    child: const Icon(
+                      Icons.search,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
               ),
-            ),
-            Container(
-              height: getProportionateScreenWidth(50),
-              width: getProportionateScreenWidth(50),
-              decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(10),
-                    topRight: Radius.circular(10),
+              SizedBox(height: getProportionateScreenWidth(10)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomInput(
+                    width: getProportionateScreenWidth(155),
+                    textHint: "Từ ngày",
+                    iconData: Icons.calendar_month,
+                    press: () {
+                      BottomDialog().showBottomDialog(
+                        context,
+                        const BodyDialog(
+                          title: "Chọn ngày",
+                          child: BodyDatePickerDialog(),
+                        ),
+                      );
+                    },
                   ),
-                  color: Colors.teal.shade200),
-              child: const Icon(
-                Icons.search,
-                color: Colors.white,
+                  SizedBox(width: getProportionateScreenWidth(20)),
+                  CustomInput(
+                    width: getProportionateScreenWidth(155),
+                    textHint: "Đến ngày",
+                    iconData: Icons.calendar_month,
+                    press: () {
+                      BottomDialog().showBottomDialog(
+                        context,
+                        const BodyDialog(
+                          title: "Chọn ngày",
+                          child: BodyDatePickerDialog(),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
-            )
-          ],
-        ),
-        SizedBox(height: getProportionateScreenWidth(10)),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomInput(
-              width: getProportionateScreenWidth(155),
-              textHint: "Từ ngày",
-              iconData: Icons.calendar_month,
-              press: () {
-                BottomDialog().showBottomDialog(
-                  context,
-                  const BodyDialog(
-                    title: "Chọn ngày",
-                    child: BodyDatePickerDialog(),
-                  ),
-                );
-              },
-            ),
-            SizedBox(width: getProportionateScreenWidth(20)),
-            CustomInput(
-              width: getProportionateScreenWidth(155),
-              textHint: "Đến ngày",
-              iconData: Icons.calendar_month,
-              press: () {
-                BottomDialog().showBottomDialog(
-                  context,
-                  const BodyDialog(
-                    title: "Chọn ngày",
-                    child: BodyDatePickerDialog(),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
-        SizedBox(height: getProportionateScreenWidth(10)),
-        CustomInput(
-          width: getProportionateScreenWidth(330),
-          textHint: "Trạng thái",
-          iconData: Icons.keyboard_arrow_down,
-          press: () {
-            BottomDialog().showBottomDialog(
-              context,
-              const BodyDialog(
-                title: "Trạng thái",
-                child: BodyStatusDialog(),
+              SizedBox(height: getProportionateScreenWidth(10)),
+              CustomInput(
+                width: getProportionateScreenWidth(330),
+                textHint: "Trạng thái",
+                iconData: Icons.keyboard_arrow_down,
+                press: () {
+                  BottomDialog().showBottomDialog(
+                    context,
+                    const BodyDialog(
+                      title: "Trạng thái",
+                      child: BodyStatusDialog(),
+                    ),
+                  );
+                },
               ),
-            );
-          },
+              SizedBox(height: getProportionateScreenWidth(10)),
+            ],
+          ),
         ),
-        SizedBox(height: getProportionateScreenWidth(10)),
         const ViolationTab()
       ],
     );

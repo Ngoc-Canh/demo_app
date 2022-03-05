@@ -1,8 +1,6 @@
-import 'package:demo_app/enum.dart';
 import 'package:demo_app/size_config.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/custom_bottom_navbar.dart';
 import 'components/body.dart';
 import 'components/notification_app_bar.dart';
 
@@ -16,10 +14,7 @@ class NotificationScreen extends StatelessWidget {
     SizeConfig().init(context);
     return const Scaffold(
       appBar: NotificationAppBar(),
-      body: BodyNotification(),
-      bottomNavigationBar: CustomBottomNavBar(
-        state: MenuState.notification,
-      ),
+      body: BodyNotification()
     );
   }
 }
