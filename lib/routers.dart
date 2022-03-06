@@ -1,4 +1,5 @@
 import 'package:demo_app/screen/citizen_service/citizen_service_screen.dart';
+import 'package:demo_app/screen/detail_violation/detail_violation_screen.dart';
 import 'package:demo_app/screen/feedback_history/feedback_history_screen.dart';
 import 'package:demo_app/screen/home/home_screen.dart';
 import 'package:demo_app/screen/login/login_screen.dart';
@@ -17,4 +18,5 @@ final Map<String, WidgetBuilder> routers = {
   LoginScreen.routerName: (context) => const LoginScreen(),
   CitizenServiceScreen.routerName: (context) => const CitizenServiceScreen(),
   FeedbackHistoryScreen.routerName: (context) => const FeedbackHistoryScreen(),
+  DetailViolationScreen.routerName: (context) => const DetailViolationScreen(),
 };
