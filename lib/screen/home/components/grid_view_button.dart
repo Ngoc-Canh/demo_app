@@ -1,4 +1,5 @@
 import 'package:demo_app/screen/citizen_service/citizen_service_screen.dart';
+import 'package:demo_app/screen/feedback_history/feedback_history_screen.dart';
 import 'package:demo_app/screen/vpgt_search/VPGTScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class GridViewButton extends StatelessWidget {
                   Navigator.pushNamed(context, CitizenServiceScreen.routerName);
                   break;
                 case 2:
-                  () {};
+                  Navigator.pushNamed(context, FeedbackHistoryScreen.routerName);
                   break;
                 case 3:
                   () {};
