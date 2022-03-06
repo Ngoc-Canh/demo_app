@@ -107,13 +107,14 @@ class BodyLogin extends StatelessWidget {
               ),
             ),
             SizedBox(height: getProportionateScreenWidth(35)),
-            Container(
+            Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: getProportionateScreenWidth(20),
+                horizontal: getProportionateScreenWidth(25),
               ),
               child: Row(
                 children: [
                   Container(
+                    width: getProportionateScreenWidth(260),
                     padding: EdgeInsets.symmetric(
                       vertical: getProportionateScreenWidth(15),
                     ),

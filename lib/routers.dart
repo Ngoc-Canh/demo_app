@@ -1,3 +1,4 @@
+import 'package:demo_app/screen/citizen_service/citizen_service_screen.dart';
 import 'package:demo_app/screen/home/home_screen.dart';
 import 'package:demo_app/screen/login/login_screen.dart';
 import 'package:demo_app/screen/notification/notification_screen.dart';
@@ -13,4 +14,5 @@ final Map<String, WidgetBuilder> routers = {
   VPGTScreen.routerName: (context) => const VPGTScreen(),
   ParentHomeScreen.routerName: (context) => const ParentHomeScreen(),
   LoginScreen.routerName: (context) => const LoginScreen(),
+  CitizenServiceScreen.routerName: (context) => const CitizenServiceScreen(),
 };
